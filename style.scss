@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css?family=Grape+Nuts");
+@import url("https://fonts.googleapis.com/css?family=Farsan");
+
+$darker: #00008b;
+$lighter: rgba(
+  $color: #ffffff,
+  $alpha: 0.5,
+);
+$radius: 50px;
+
+@mixin buttonLayOut {
+  font-family: "Grape Nuts", "Arial";
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 5rem;
+  background-color: $darker;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  border-radius: $radius;
+  border: 2px solid $darker;
+  &:hover {
+    background-color: $lighter;
+    color: $darker;
+    border: 2px solid white;
+  }
+}
+
+@mixin inputLayOut {
+  padding-left: 1.5rem;
+  width: 400px;
+  height: fit-content;
+  font-size: 2rem;
+  font-family: "Farsan", "Arial";
+  border: 5px solid $darker;
+  border-radius: $radius;
+}
+
+body {
+  text-align: center;
+  color: $darker;
+  background-color: #b4e6f9;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  h1 {
+    font-family: "Grape Nuts", "Arial";
+    font-size: 3rem;
+    background-color: $lighter;
+    width: 500px;
+    border-radius: $radius;
+  }
+}
+
+.toDo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+  input {
+    @include inputLayOut();
+  }
+  button {
+    @include buttonLayOut();
+  }
+}
+
+.taskList {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: $lighter;
+  border-radius: $radius;
+  margin: 1.5rem 25rem;
+  font-family: "Farsan", "Arial";
+  font-size: 1.5rem;
+  div {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    justify-content: center;
+    align-items: center;
+    img {
+      padding: 10px;
+      width: 36px;
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+    p {
+      cursor: pointer;
+    }
+    input {
+      cursor: pointer;
+      margin-left: 2rem;
+      width: 30px;
+      height: 30px;
+    }
+    span {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      button {
+        @include buttonLayOut();
+        margin-left: 10px;
+        width: 50px;
+        height: 50px;
+      }
+      input {
+        @include inputLayOut();
+        width: 300px;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
